@@ -24,7 +24,7 @@ there was two fake information in ZDI report
 
 RLM come with AccuRev but it can be directly download  by following link:  http://www.reprisesoftware.com/license_admin_kits/rlm.v11.3BL1-x86_w1.admin.exe
 
-searching service_startup_doit string inside rlm.exe dont have any results so i changed it to service_  to get flowling strings
+searching service_startup_doit string inside rlm.exe dont have any results so i changed it to service_  to get following strings
 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/stringInIdapro.png)
 
