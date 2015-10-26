@@ -42,12 +42,12 @@ but rlm.exe send error  response  without any crash
 i set breakpoint in Immunity debugger to track how rlm.exe validate size of string 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/asm-check.png)
 
-based  on above asm code rlm check string size be less than or equal to 0x400 to prevent buffer overflow so i thought my rlm.exe version is not vulnerable but i start fuzzing other attack vectors ,so i find out if you send big  string in debuglog parameter and  if string is less than  0x400 to bypass above check you can overiride return value in stack  with  notorious 0x41414141 in rlm.exe so i as said  vulnerabile function is debuglog not licfile .
+based  on above asm code rlm check string size be less than or equal to 0x400 to prevent buffer overflow so i thought my rlm.exe version is not vulnerable but i start fuzzing other attack vectors ,so i find out if you send big  string in debuglog parameter and  if string is less than  0x400 to bypass above check you can overwrite return value in stack  with  notorious 0x41414141 in rlm.exe so i as said  vulnerable function is debuglog not licfile .
 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/eip.png)
 
-i checked rlm.exe and  it does not support ASLR but there was a big problem,rlm.exe contain null in its addressو so we can't use any address to build our ROP inside rlm.exeو becuse it use string copy functios and it copy string in stack unitl null byte.
-so exploting this vulnerability is so simple in XP,just return to shellcode insde stack without ROP 
+i checked rlm.exe and  it does not support ASLR but there was a big problem,rlm.exe contain null in its address,so we can't use any address to build our ROP inside rlm.exeو because it use string copy functions and it copy string in stack until null byte.
+so exploiting this vulnerability is so simple in XP,just return to shellcode inside stack without ROP 
 
 ````
 import requests
