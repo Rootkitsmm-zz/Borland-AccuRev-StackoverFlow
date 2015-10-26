@@ -28,7 +28,7 @@ searching service_startup_doit string inside rlm.exe dont have any results so i 
 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/stringInIdapro.png)
 
-after some reversing and  anlyzing functions that use above string i decide to use another way to finding bug 
+after some reversing and  analyzing functions that use above string i decide to use another way to finding bug 
 
 ZDI said vunlnerable function is accessible remotely so I start read RLM manal to find out how it work 
 RLM have Web interface it start http server on port 5054 , with the help of burpsuite we can view all http parameters in post or get requests 
