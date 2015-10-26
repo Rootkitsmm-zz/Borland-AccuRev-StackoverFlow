@@ -8,7 +8,7 @@ I try to Exploit recently published vulnerability in Borland AccuRev
 http://www.zerodayinitiative.com/advisories/ZDI-15-416/
 
 ````
-his vulnerability allows remote attackers to execute arbitrary code on 
+this vulnerability allows remote attackers to execute arbitrary code on 
 vulnerable installations of Borland AccuRev. Authentication is not required
 to exploit this vulnerability.
 
