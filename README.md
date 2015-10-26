@@ -17,7 +17,7 @@ of the Reprise License Manager service. The issue lies in the handling
 of the licfile parameter which can result in overflowing a stack-based buffer.
 An attacker could leverage this vulnerability to execute code under the context of SYSTEM.
 ````
-there was tow fake information in ZDI report
+there was two fake information in ZDI report
 
 1. maping between string and function is "service_Setup_doit" not "service_startup_doit"
 2. vulnerabile parameter is debuglog not licfile 
