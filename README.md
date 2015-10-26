@@ -31,8 +31,8 @@ searching service_startup_doit string inside rlm.exe dont have any results so i 
 after some reversing and  analyzing functions that use above string i decide to use another way to finding bug 
 
 ZDI said vulnerable function is accessible remotely so I start read RLM manual to find out how it work 
-RLM have Web interface it start http server on port 5054 , with the help of burpsuite we can view all http parameters in post or get requests 
-after fuzzing Web interface i found target "licfile" parameter in one  Post request
+RLM have Web interface it start http server on port 5054 , with the help of burpsuite we can view all http parameters in post or get requests,
+after fuzzing Web interface i found target "licfile" parameter in one Post request
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/burpsuite.png)
 
 for checking licfile parameter vulnerability with help of BurpSuite i send big string parameter to web server
