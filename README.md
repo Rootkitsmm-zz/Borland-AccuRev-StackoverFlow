@@ -34,3 +34,9 @@ for checking licfile parameter vunlarblity  with help of BurpSuite i send big st
 but rlm.exe send error  response  without crash 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/httperror.png)
 i set breakpoint in Immunity debugger to track how rlm check size of string 
+![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/asm-check.png)
+
+based  on above asm code rlm check string size be  less than or egaul to 0x400 so i thout my version is not vulrable but i start fuzz other filds so if you send big  string in debuglog parameter and  if string is less than  0x400 to bypass above check you can overiride ret value in stack  with  notoruis 0x41414141 in rlm.exe so i as said  vunlrable function is debuglog not licfile .
+
+
+i check rlm.exe and  it dose not support ASLR 
