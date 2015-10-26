@@ -29,3 +29,5 @@ RLM have Web interface it start http server on port 5054 , with the help of burp
 after fuzzing Web interface in 2 minite i found our target "licfile" parameter.
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/burpsuite.png)
 
+for checking licfile parameter vunlarblity  with help of BurpSuite i send big string parameter
+but rlm.exe send error  response  without crash 
