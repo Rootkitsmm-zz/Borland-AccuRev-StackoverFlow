@@ -35,7 +35,7 @@ RLM have Web interface it start http server on port 5054 , with the help of burp
 after fuzzing Web interface i found target "licfile" parameter in one  Post request
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/burpsuite.png)
 
-for checking licfile parameter vunlarblity with help of BurpSuite i send big string parameter to web server
+for checking licfile parameter vulnerability with help of BurpSuite i send big string parameter to web server
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/bigbuffer.png)
 but rlm.exe send error  response  without any crash 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/httperror.png)
