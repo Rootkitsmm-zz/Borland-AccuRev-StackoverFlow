@@ -19,25 +19,25 @@ An attacker could leverage this vulnerability to execute code under the context 
 ````
 there was two fake information in ZDI report
 
-1. mapping between string and function is "service_Setup_doit" not "service_startup_doit"
-2. vulnerable parameter is "debuglog" not "licfile"
+1. mapping between string and function is "service_Setup_doit" not "service_startup_doit".
+2. vulnerable parameter is "debuglog" not "licfile".
 
 RLM come with AccuRev but it can be directly download  by following link:  http://www.reprisesoftware.com/license_admin_kits/rlm.v11.3BL1-x86_w1.admin.exe
 
-searching "service_startup_doit" string inside rlm.exe dont have any results so i changed it to "service_" to get following strings
+searching "service_startup_doit" string inside rlm.exe dont have any results so i changed it to "service_" to get following strings.
 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/stringInIdapro.png)
 
-after some reversing and  analyzing functions that use above string i decide to use another way to finding bug 
+after some reversing and  analyzing functions that use above string i decide to use another way to finding bug.
 
 ZDI said vulnerable function is accessible remotely so I start read RLM manual to find out how it work 
 RLM have Web interface it start http server on port 5054 , with the help of burpsuite we can view all http parameters in post or get requests,
-after fuzzing Web interface i found target "licfile" parameter in one Post request
+after fuzzing Web interface i found target "licfile" parameter in one Post request.
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/burpsuite.png)
 
-for checking licfile parameter vulnerability with help of BurpSuite i send big string parameter to web server
+for checking licfile parameter vulnerability with help of BurpSuite i send big string parameter to web server.
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/bigbuffer.png)
-but rlm.exe send error response without any crash 
+but rlm.exe send error response without any crash.
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/httperror.png)
 i set breakpoint in Immunity debugger to track how rlm.exe validate size of string 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/asm-check.png)
