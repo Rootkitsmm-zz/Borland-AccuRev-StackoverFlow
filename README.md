@@ -42,7 +42,7 @@ but rlm.exe send error  response  without any crash
 i set breakpoint in Immunity debugger to track how rlm.exe validate size of string 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/asm-check.png)
 
-based  on above asm code rlm check string size be less than or egaul to 0x400 to prvent buffer overflow so i thought my rlm.exe version is not vulnerabile but i start fuzzing other attack vetors ,so i findout if you send big  string in debuglog parameter and  if string is less than  0x400 to bypass above check you can overiride return value in stack  with  notorious 0x41414141 in rlm.exe so i as said  vulnerabile function is debuglog not licfile .
+based  on above asm code rlm check string size be less than or equal to 0x400 to prevent buffer overflow so i thought my rlm.exe version is not vulnerabile but i start fuzzing other attack vetors ,so i findout if you send big  string in debuglog parameter and  if string is less than  0x400 to bypass above check you can overiride return value in stack  with  notorious 0x41414141 in rlm.exe so i as said  vulnerabile function is debuglog not licfile .
 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/eip.png)
 
