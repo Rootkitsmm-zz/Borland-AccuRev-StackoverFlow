@@ -1,4 +1,8 @@
 # Borland-AccuRev-StackoverFlow
+****
+mail :   Firozimaysam@gmail.com 
+twitter : https://twitter.com/R00tkitSMM 
+
 i try to Exploit recently published  vunluerblity in Borland AccuRev 
 
 http://www.zerodayinitiative.com/advisories/ZDI-15-416/
