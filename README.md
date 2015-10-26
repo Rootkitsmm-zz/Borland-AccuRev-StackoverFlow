@@ -3,7 +3,7 @@
 mail :   Firozimaysam@gmail.com 
 twitter : https://twitter.com/R00tkitSMM 
 
-I try to Exploit recently published  vulnerability in Borland AccuRev 
+I try to Exploit recently published vulnerability in Borland AccuRev 
 
 http://www.zerodayinitiative.com/advisories/ZDI-15-416/
 
@@ -24,7 +24,7 @@ there was two fake information in ZDI report
 
 RLM come with AccuRev but it can be directly download  by following link:  http://www.reprisesoftware.com/license_admin_kits/rlm.v11.3BL1-x86_w1.admin.exe
 
-searching service_startup_doit string inside rlm.exe dont have any results so i changed it to service_  to get following strings
+searching "service_startup_doit" string inside rlm.exe dont have any results so i changed it to "service_" to get following strings
 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/stringInIdapro.png)
 
@@ -37,16 +37,16 @@ after fuzzing Web interface i found target "licfile" parameter in one Post reque
 
 for checking licfile parameter vulnerability with help of BurpSuite i send big string parameter to web server
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/bigbuffer.png)
-but rlm.exe send error  response  without any crash 
+but rlm.exe send error response without any crash 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/httperror.png)
 i set breakpoint in Immunity debugger to track how rlm.exe validate size of string 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/asm-check.png)
 
-based  on above asm code rlm check string size be less than or equal to 0x400 to prevent buffer overflow so i thought my rlm.exe version is not vulnerable but i start fuzzing other attack vectors ,so i find out if you send big  string in debuglog parameter and  if string is less than  0x400 to bypass above check you can overwrite return value in stack  with  notorious 0x41414141 in rlm.exe so i as said  vulnerable function is debuglog not licfile .
+based on above asm code rlm check string size be less than or equal to 0x400 to prevent buffer overflow so i thought my rlm.exe version is not vulnerable but i start fuzzing other attack vectors,so i find out if you send big string in debuglog parameter and if string is less than 0x400 to bypass above check you can overwrite return value in stack with notorious 0x41414141 in rlm.exe so i as said vulnerable function is "debuglog" not "licfile".
 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/eip.png)
 
-i checked rlm.exe and  it does not support ASLR but there was a big problem,rlm.exe contains null in its address,so we can't use any address to build our ROP inside rlm.exeو because it use string copy functions and it copy string in stack until null byte.
+i checked rlm.exe and it does not support ASLR but there was a big problem,rlm.exe contains null in its address,so we can't use any address to build our ROP inside rlm.exe,because it use string copy functions and it copy string in stack until null byte.
 so exploiting this vulnerability is so simple in XP,just return to shellcode inside stack without ROP.
 
 ````
