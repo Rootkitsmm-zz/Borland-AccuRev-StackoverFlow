@@ -40,4 +40,8 @@ based  on above asm code rlm check string size be  less than or egaul to 0x400 s
 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/eip.png)
 
-i check rlm.exe and  it dose not support ASLR 
+i check rlm.exe and  it dose not support ASLR but there was a big problem and  it was rlm.exe contain null in its address so we can't use any address to build our ROP inside  rlm.exe  becuse it use string copy functios and it copy string in stack unitl null byte .
+so i think exploting this  vunlrablaty is so simple  in XP :) just return to 
+
+
+
