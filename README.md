@@ -46,8 +46,8 @@ based  on above asm code rlm check string size be less than or egaul to 0x400 to
 
 ![alt tag](https://raw.githubusercontent.com/Rootkitsmm/Borland-AccuRev-StackoverFlow/master/eip.png)
 
-i checked rlm.exe and  it dose not support ASLR but there was a big problem,rlm.exe contain null in its address so we can't use any address to build our ROP inside rlm.exe becuse it use string copy functios and it copy string in stack unitl null byte.
-so exploting this vunlrablaty is so simple in XP :) just return to shellcode insde stack without ROP :)
+i checked rlm.exe and  it does not support ASLR but there was a big problem,rlm.exe contain null in its address so we can't use any address to build our ROP inside rlm.exe becuse it use string copy functios and it copy string in stack unitl null byte.
+so exploting this vulnerability is so simple in XP ,just return to shellcode insde stack without ROP 
 
 ````
 import requests
