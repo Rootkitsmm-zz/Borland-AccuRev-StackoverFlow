@@ -20,7 +20,7 @@ An attacker could leverage this vulnerability to execute code under the context 
 there was two fake information in ZDI report
 
 1. mapping between string and function is "service_Setup_doit" not "service_startup_doit"
-2. vulnerable parameter is debuglog not licfile 
+2. vulnerable parameter is "debuglog" not "licfile"
 
 RLM come with AccuRev but it can be directly download  by following link:  http://www.reprisesoftware.com/license_admin_kits/rlm.v11.3BL1-x86_w1.admin.exe
 
